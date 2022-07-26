@@ -73,7 +73,7 @@ class PostLike(View):
         post = get_object_or_404(Post, slug=slug)
 
         # toggle like button 
-        if post.likes.filter(id=request.user.id).exists():
+        if post.likes.filter(id=self.request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
